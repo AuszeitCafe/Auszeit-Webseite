@@ -5,32 +5,43 @@ import { IconContainer } from "./ui/icon-container"
 
 export default function CateringMenuSection() {
   const scrollbarStyles = `
-    .catering-menu-scroll::-webkit-scrollbar {
-      width: 12px;
-      display: block !important;
-    }
-    .catering-menu-scroll::-webkit-scrollbar-track {
-      background: hsl(var(--muted));
-      border-radius: 6px;
-      display: block !important;
-    }
-    .catering-menu-scroll::-webkit-scrollbar-thumb {
-      background: hsl(var(--primary));
-      border-radius: 6px;
-      opacity: 1 !important;
-      display: block !important;
-      visibility: visible !important;
-    }
-    .catering-menu-scroll::-webkit-scrollbar-thumb:hover {
-      background: hsl(var(--primary) / 0.8);
-    }
     .catering-menu-scroll {
-      scrollbar-width: thick !important; /* For Firefox */
-      overflow-y: scroll !important;
+      overflow-y: scroll !important; /* Retain user's !important */
+      scrollbar-gutter: stable; /* Reserve space for the scrollbar track */
+      
+      /* For Firefox */
+      scrollbar-width: thick !important; /* Retain user's !important */
+      scrollbar-color: hsl(var(--primary)) hsl(var(--muted)); /* More direct: thumb color, track color */
     }
-    /* Ensure scrollbar doesn't auto-hide on WebKit (macOS Safari/Chrome) */
+
+    /* For WebKit browsers (Chrome, Safari, newer Edge) */
     .catering-menu-scroll::-webkit-scrollbar {
-      -webkit-appearance: none !important;
+      -webkit-appearance: none !important; /* Crucial for custom styling, retain user's !important */
+      width: 12px; /* User's desired width */
+      /* Removed 'display: block !important;' as it's non-standard here */
+    }
+
+    .catering-menu-scroll::-webkit-scrollbar-track {
+      background-color: hsl(var(--muted));
+      border-radius: 6px;
+      /* Removed 'display: block !important;' */
+    }
+
+    .catering-menu-scroll::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--primary));
+      border-radius: 6px;
+      /* Adding a border can make the thumb more distinct or appear padded */
+      /* This border uses the track's color, making the thumb appear inset by 2px on each side */
+      border: 2px solid hsl(var(--muted)); 
+      
+      /* Retain user's attempts to force visibility, which may or may not override mobile browser auto-hide */
+      opacity: 1 !important; 
+      visibility: visible !important;
+      /* Removed 'display: block !important;' */
+    }
+
+    .catering-menu-scroll::-webkit-scrollbar-thumb:hover {
+      background-color: hsl(var(--primary) / 0.8); /* Hover effect, less relevant on touch devices */
     }
   `
 
@@ -44,6 +55,7 @@ export default function CateringMenuSection() {
         <div className="flex flex-col items-center mb-10">
           <div className="mb-4">
             <IconContainer size="xl" variant="primary" className="bg-primary/15 border border-primary/20">
+              {/* Assuming 'catering' icon exists or CustomIcon handles it */}
               <CustomIcon name="catering" size={48} />
             </IconContainer>
           </div>
@@ -86,15 +98,7 @@ export default function CateringMenuSection() {
             <div className="bg-primary/5 p-4 border-b border-border">
               <h3 className="text-xl text-primary">Süß</h3>
             </div>
-            <div
-              className="catering-menu-scroll p-6 max-h-[500px]" // overflow-y-scroll is now in CSS
-              style={
-                {
-                  // scrollbarWidth and scrollbarColor are for Firefox, handled by CSS now
-                  // scrollbarGutter: "stable", // This can also be in CSS if preferred
-                }
-              }
-            >
+            <div className="catering-menu-scroll p-6 max-h-[500px]">
               <ul className="space-y-2 text-foreground">
                 {[
                   "Melonen Platte",
@@ -142,14 +146,7 @@ export default function CateringMenuSection() {
             <div className="bg-primary/5 p-4 border-b border-border">
               <h3 className="text-xl text-primary">Deftig</h3>
             </div>
-            <div
-              className="catering-menu-scroll p-6 max-h-[500px]" // overflow-y-scroll is now in CSS
-              style={
-                {
-                  // scrollbarGutter: "stable",
-                }
-              }
-            >
+            <div className="catering-menu-scroll p-6 max-h-[500px]">
               <ul className="space-y-2 text-foreground">
                 {[
                   "Mini veggie burger",
