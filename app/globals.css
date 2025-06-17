@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Aspal";
+  src: url("/fonts/Aspal.woff2") format("woff2"), url("/fonts/Aspal.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Enhanced warm color palette with brown and beige tones */
+    --background: 35 30% 97%;
+    --foreground: 28 25% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 28 25% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 28 25% 18%;
+
+    /* Warm coffee brown instead of orange */
+    --primary: 30 45% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Warmer secondary - soft beige */
+    --secondary: 35 40% 92%;
+    --secondary-foreground: 28 30% 25%;
+
+    /* Softer muted tones */
+    --muted: 35 25% 92%;
+    --muted-foreground: 28 15% 45%;
+
+    /* Warmer accent - light caramel */
+    --accent: 30 40% 88%;
+    --accent-foreground: 28 30% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warmer border color */
+    --border: 30 25% 85%;
+    --input: 30 25% 85%;
+    --ring: 30 45% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 28 25% 12%;
+    --foreground: 35 15% 90%;
+
+    --card: 28 25% 12%;
+    --card-foreground: 35 15% 90%;
+
+    --popover: 28 25% 12%;
+    --popover-foreground: 35 15% 90%;
+
+    /* Warmer primary in dark mode */
+    --primary: 30 40% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 28 25% 25%;
+    --secondary-foreground: 35 15% 90%;
+
+    --muted: 28 25% 25%;
+    --muted-foreground: 30 15% 70%;
+
+    --accent: 28 25% 25%;
+    --accent-foreground: 35 15% 90%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 35 15% 90%;
+
+    --border: 28 25% 30%;
+    --input: 28 25% 30%;
+    --ring: 30 40% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent content from being hidden under fixed header */
+@media (max-width: 768px) {
+  #services,
+  #gallery,
+  #pricing,
+  #booking {
+    scroll-margin-top: 70px;
+  }
+}
+
+@media (min-width: 769px) {
+  #services,
+  #gallery,
+  #pricing,
+  #booking {
+    scroll-margin-top: 80px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .font-aspal {
+    font-family: "Aspal", serif;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-rendering: optimizeLegibility;
+    vertical-align: baseline;
+    display: inline-block;
+    transform: translateY(-0.05em);
+  }
+
+  .font-aspal-title {
+    font-family: "Aspal", serif;
+    line-height: 1.05;
+    letter-spacing: 0.025em;
+    text-rendering: optimizeLegibility;
+    vertical-align: baseline;
+  }
+
+  .font-aspal-heading {
+    font-family: "Aspal", serif;
+    line-height: 1.15;
+    letter-spacing: 0.015em;
+    text-rendering: optimizeLegibility;
+    vertical-align: baseline;
+  }
+
+  /* Enhanced button styles with warm brown tones */
+  .btn-primary-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(30 50% 40%) 100%);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary-gradient:hover {
+    background: linear-gradient(135deg, hsl(30 50% 40%) 0%, hsl(var(--primary)) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Enhanced card styles */
+  .card-hover-effect {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover-effect:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  /* Warm gradient backgrounds with brown tones */
+  .bg-warm-gradient {
+    background: linear-gradient(135deg, hsl(35, 40%, 92%) 0%, hsl(30, 35%, 88%) 100%);
+  }
+
+  .bg-accent-gradient {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(35, 35%, 85%) 100%);
+  }
+
+  /* Coffee brown accent for special elements */
+  .bg-coffee-accent {
+    background: linear-gradient(135deg, hsl(30, 40%, 50%) 0%, hsl(25, 35%, 45%) 100%);
+  }
+}
