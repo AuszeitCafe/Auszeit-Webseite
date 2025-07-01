@@ -141,7 +141,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t mt-12 pt-6 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Auszeit Catering. Alle Rechte vorbehalten.</p>
+          <p>© {new Date().getFullYear()} Cafe Auszeit. Alle Rechte vorbehalten.</p>
           <div className="mt-2 space-x-4">
             <Link href="/impressum" className="hover:text-primary transition-colors">
               Impressum
