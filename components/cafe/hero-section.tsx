@@ -17,27 +17,13 @@ export default function CafeHeroSection() {
 
       <div className="container mx-auto px-4 z-20 text-center">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col items-center justify-center mb-6">
-            <div className="flex items-center justify-center gap-2 md:gap-3">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-aspal-title uppercase tracking-wide leading-none">
-                Cafe
-              </h1>
-              <Image
-                src="/images/AuszeitMainLogo.png"
-                alt="Auszeit Logo"
-                width={280}
-                height={140}
-                className="h-16 md:h-24 lg:h-28 w-auto filter brightness-0 invert -mt-10 md:-mt-14 lg:-mt-16"
-                style={{
-                  filter: "brightness(0) invert(1)",
-                }}
-                priority
-              />
-            </div>
-          </div>
-          <p className="text-xl md:text-2xl mb-6 text-white/90">
-            Genießen Sie eine Auszeit vom Alltag in unserem gemütlichen Café
-          </p>
+        <div className="flex items-center justify-center mb-6">
+        <div className="flex items-start justify-center gap-2 md:gap-4 mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-aspal-title uppercase tracking-wide leading-none">
+            Cafe Auszeit
+          </h1>
+        </div>
+        </div>
           <Link href="/">
             <Button variant="outline" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border-white/30">
               <IconContainer size="sm" variant="transparent" className="!w-6 !h-6 !p-0 mr-2">

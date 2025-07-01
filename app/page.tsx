@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Footer from "@/components/footer"
 import { CustomIcon, IconContainer } from "@/components/ui/icon-container"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/hooks/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 
 export default function Home() {
@@ -47,28 +47,26 @@ export default function Home() {
 
         {/* Content */}
         <div className="container mx-auto px-4 z-20 text-center py-24">
-          <div className="bg-white/95 backdrop-blur-md rounded-xl p-8 md:p-12 max-w-4xl mx-auto shadow-2xl border border-primary/20">
+          <div className="bg-cream/90 backdrop-blur-md rounded-xl p-6 md:p-10 max-w-3xl mx-auto shadow-2xl border border-primary/20">
             {/* Logo instead of text header */}
             <div className="flex justify-center mb-6">
               <Image
                 src="/images/AuszeitMainLogo.png"
                 alt="Auszeit Logo"
-                width={280}
-                height={140}
+                width={220}
+                height={110}
                 className="h-auto"
                 priority
               />
             </div>
-
             <p className="text-lg md:text-xl mb-10 text-gray-600 max-w-2xl mx-auto">
               Entdecken Sie unsere Welt des Genusses – mit unserem vielfältigen Frühstück und Brunch-Angebot aus
               regionalen und Bio-Produkten. Genießen Sie unsere hausgemachten Spezialitäten mit frischen Zutaten, auch
               vegan und vegetarisch.
             </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {/* Café Auszeit Section */}
-              <div className="flex flex-col items-center p-8 rounded-xl bg-gradient-to-b from-white/95 to-beige-100/95 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 relative overflow-hidden group">
+              <div className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-b from-cream/95 to-beige-100/95 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <IconContainer
                   size="xl"
@@ -89,7 +87,7 @@ export default function Home() {
               </div>
 
               {/* Catering Auszeit Section */}
-              <div className="flex flex-col items-center p-8 rounded-xl bg-gradient-to-b from-white/95 to-beige-100/95 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 relative overflow-hidden group">
+              <div className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-b from-cream/95 to-beige-100/95 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <IconContainer
                   size="xl"
@@ -110,7 +108,7 @@ export default function Home() {
               </div>
 
               {/* Ferienwohnung Auszeit Section */}
-              <div className="flex flex-col items-center p-8 rounded-xl bg-gradient-to-b from-white/95 to-beige-100/95 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 relative overflow-hidden group">
+              <div className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-b from-cream/95 to-beige-100/95 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <IconContainer
                   size="xl"
@@ -132,10 +130,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       {/* Toast notification */}
       <Toaster />
-
       {/* Footer */}
       <Footer />
     </main>

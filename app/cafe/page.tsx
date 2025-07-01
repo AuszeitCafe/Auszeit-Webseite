@@ -12,7 +12,7 @@ export default function CafePage() {
       <CafeHeroSection />
       <CafeAboutSection />
       <PdfMenuLinkSection /> {/* Use new component */}
-      <CafeHoursLocationSection />
+      {/* <CafeHoursLocationSection /> */}
       <Footer />
     </main>
   )

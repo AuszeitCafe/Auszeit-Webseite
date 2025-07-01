@@ -15,8 +15,8 @@ export default function Home() {
         <HeroSection />
         <ServicesSection />
         <CateringMenuSection />
-        <DesignColorSection />
-        <GallerySection />
+        {/* <DesignColorSection />
+        <GallerySection /> */}
         {/* <PricingSection /> */}
         <BookingSection />
         <Footer />

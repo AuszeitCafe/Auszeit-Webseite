@@ -4,203 +4,49 @@ import { CustomIcon } from "./ui/icon-container"
 import { IconContainer } from "./ui/icon-container"
 
 export default function CateringMenuSection() {
-  const scrollbarStyles = `
-    .catering-menu-scroll::-webkit-scrollbar {
-      width: 12px;
-      display: block !important;
-    }
-    .catering-menu-scroll::-webkit-scrollbar-track {
-      background: hsl(var(--muted));
-      border-radius: 6px;
-      display: block !important;
-    }
-    .catering-menu-scroll::-webkit-scrollbar-thumb {
-      background: hsl(var(--primary));
-      border-radius: 6px;
-      opacity: 1 !important;
-      display: block !important;
-      visibility: visible !important;
-    }
-    .catering-menu-scroll::-webkit-scrollbar-thumb:hover {
-      background: hsl(var(--primary) / 0.8);
-    }
-    .catering-menu-scroll {
-      scrollbar-width: thick !important; /* For Firefox */
-      overflow-y: scroll !important;
-    }
-    /* Ensure scrollbar doesn't auto-hide on WebKit (macOS Safari/Chrome) */
-    .catering-menu-scroll::-webkit-scrollbar {
-      -webkit-appearance: none !important;
-    }
-  `
+  const handleOpenMenu = () => {
+    window.open("/menu/CateringMenu.pdf", "_blank")
+  }
 
   return (
     <section id="angebote" className="w-full py-16 bg-background">
-      <style jsx global>
-        {scrollbarStyles}
-      </style>{" "}
-      {/* Apply styles globally for this component */}
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="flex flex-col items-center mb-10">
+        <div className="flex flex-col items-center">
           <div className="mb-4">
             <IconContainer size="xl" variant="primary" className="bg-primary/15 border border-primary/20">
               <CustomIcon name="catering" size={48} />
             </IconContainer>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Unsere Catering-Angebote</h2>
-          <p className="text-center text-muted-foreground max-w-2xl">
-            Wir bieten eine Vielzahl von Optionen für Ihr Event - von süßen und deftigen Speisen bis hin zu
-            erfrischenden Getränken.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {/* Getränke Column */}
-          <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden">
-            <div className="bg-primary/5 p-4 border-b border-border">
-              <h3 className="text-xl text-primary">Getränke</h3>
-            </div>
-            <div className="p-6">
-              <ul className="space-y-2 text-foreground">
-                <li className="py-1 flex items-center">
-                  <span className="w-2 h-2 rounded-full bg-primary/40 mr-2"></span>
-                  Limonade Minze
-                </li>
-                <li className="py-1 flex items-center">
-                  <span className="w-2 h-2 rounded-full bg-primary/40 mr-2"></span>
-                  Limonade Erdbeere
-                </li>
-                <li className="py-1 flex items-center">
-                  <span className="w-2 h-2 rounded-full bg-primary/40 mr-2"></span>
-                  Limonade Zitrone
-                </li>
-                <li className="pt-6 pb-2 font-medium text-primary/90 border-t border-border mt-4">
-                  Buffet nach Farben und Motto
-                </li>
-              </ul>
-            </div>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">Catering Menu</h2>
 
-          {/* Süß Column */}
-          <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden">
-            <div className="bg-primary/5 p-4 border-b border-border">
-              <h3 className="text-xl text-primary">Süß</h3>
-            </div>
-            <div
-              className="catering-menu-scroll p-6 max-h-[500px]" // overflow-y-scroll is now in CSS
-              style={
-                {
-                  // scrollbarWidth and scrollbarColor are for Firefox, handled by CSS now
-                  // scrollbarGutter: "stable", // This can also be in CSS if preferred
-                }
-              }
+          <button
+            onClick={handleOpenMenu}
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-8 rounded-md transition-colors shadow-sm"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <ul className="space-y-2 text-foreground">
-                {[
-                  "Melonen Platte",
-                  "Obstplatte",
-                  "Obstsalat",
-                  "Melonen-Käse Platte",
-                  "Dubai-Schoko Tiramisu im Glas",
-                  "Raffaello Creme im Glas",
-                  "Obst tartlettes",
-                  "Lotus im Glas",
-                  "Tiramisu im Glas",
-                  "Mini Donuts",
-                  "Muffins",
-                  "Mini pancakes",
-                  "Schoko Pudding",
-                  "Erdbeer Pudding",
-                  "Schoko mouse",
-                  "Milchreis",
-                  "Panna Cotta mit Erdbeeren",
-                  "Mini Bowl mit chiasamen",
-                  "Cake Pops",
-                  "Bueno Törtchen",
-                  "Lotus Törtchen",
-                  "Mini Waffeln",
-                  "Cheesecake",
-                  "Brownis",
-                  "Mini Eclairs",
-                  "Creme brûlée im Schälchen",
-                ].map((item, index) => (
-                  <li key={index} className="py-1 flex items-center">
-                    <span className="w-2 h-2 rounded-full bg-primary/40 mr-2"></span>
-                    {item}
-                  </li>
-                ))}
-                <li className="py-2 flex items-center text-primary/70 italic">
-                  <span className="w-2 h-2 rounded-full bg-primary/40 mr-2"></span>
-                  ... und vieles mehr
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Deftig Column */}
-          <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden">
-            <div className="bg-primary/5 p-4 border-b border-border">
-              <h3 className="text-xl text-primary">Deftig</h3>
-            </div>
-            <div
-              className="catering-menu-scroll p-6 max-h-[500px]" // overflow-y-scroll is now in CSS
-              style={
-                {
-                  // scrollbarGutter: "stable",
-                }
-              }
-            >
-              <ul className="space-y-2 text-foreground">
-                {[
-                  "Mini veggie burger",
-                  "Mini Burger",
-                  "Bulgur Salat",
-                  "Nudel Salat",
-                  "Gemischter salat",
-                  "Kartoffelsalat",
-                  "Garnelen auf Soße",
-                  "Cig köfte",
-                  "Bruschetta",
-                  "Zigarren börek",
-                  "Käseplatte",
-                  "Lachs canepe",
-                  "Champion canepe",
-                  "Avocado canepe",
-                  "Icli köfte",
-                  "Schinken (Rind) canepe",
-                  "Crispy Garnelen",
-                  "Tomate-Mozzarella Spieß",
-                  "Käsespieß",
-                  "Crostini mit Ziegenkäse und Honig",
-                  "Mini Pizza",
-                  "Mini wrap Hähnchen",
-                  "Mini wrap vegan",
-                  "Tomate, Mozzarella Brötchen",
-                  "Mini Sandwich mix",
-                  "Gemüse Sticks",
-                  "Garnelen Spieß",
-                  "Toast Röllchen (Ofen) falafel",
-                  "Brotkorb",
-                ].map((item, index) => (
-                  <li key={index} className="py-1 flex items-center">
-                    <span className="w-2 h-2 rounded-full bg-primary/40 mr-2"></span>
-                    {item}
-                  </li>
-                ))}
-                <li className="py-2 flex items-center text-primary/70 italic">
-                  <span className="w-2 h-2 rounded-full bg-primary/40 mr-2"></span>
-                  ... und vieles mehr
-                </li>
-              </ul>
-            </div>
-          </div>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14,2 14,8 20,8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10,9 9,9 8,9" />
+            </svg>
+            Menu öffnen (PDF)
+          </button>
         </div>
 
         <div className="text-center mt-12 bg-secondary/50 p-8 rounded-lg border border-border">
           <p className="text-foreground mb-2">Haben Sie spezielle Wünsche oder Anfragen? Kontaktieren Sie uns!</p>
-          <p className="text-sm text-muted-foreground mb-4">
-            💡 Tipp: Scrollen Sie in den Listen oben, um alle verfügbaren Optionen zu sehen.
-          </p>
           <a
             href="#booking"
             className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2 px-6 rounded-md transition-colors"

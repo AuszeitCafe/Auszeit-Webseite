@@ -89,25 +89,35 @@ export default function CafeSlideshow() {
   return (
     <div className="relative w-full h-full rounded-lg overflow-hidden shadow-lg group bg-gradient-to-br from-primary/5 to-coffee-100/20">
       {/* Main Image */}
-      <div className="relative aspect-video w-full h-full">
-        <Image
-          src={slideImages[currentSlide].src || "/placeholder.svg"}
-          alt={slideImages[currentSlide].alt}
-          fill
-          className="object-cover transition-all duration-700 ease-in-out transform hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          priority
-        />
-
-        {/* Enhanced Overlay with better gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-        {/* Content Overlay with smaller, more compact styling */}
-        <div className="absolute bottom-4 left-4 right-4 text-white">
-          <div className="backdrop-blur-sm bg-black/30 rounded-lg p-2 inline-block max-w-[80%]">
-            <h3 className="text-lg font-bold">{slideImages[currentSlide].title}</h3>
-            <p className="text-xs opacity-90">{slideImages[currentSlide].description}</p>
-          </div>
+      {/* Sliding Track */}
+      <div className="relative aspect-video w-full h-full overflow-hidden">
+        <div
+          className="flex transition-transform duration-700 ease-in-out h-full w-full"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slideImages.map((slide, index) => (
+            <div key={index} className="relative min-w-full h-full">
+              <Image
+                src={slide.src || "/placeholder.svg"}
+                alt={slide.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={index === currentSlide}
+              />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              {/* Text Overlay */}
+              {index === currentSlide && (
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="backdrop-blur-sm bg-black/30 rounded-lg p-2 inline-block max-w-[80%]">
+                    <h3 className="text-lg font-bold">{slide.title}</h3>
+                    <p className="text-xs opacity-90">{slide.description}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -161,9 +171,9 @@ export default function CafeSlideshow() {
       </div>
 
       {/* Enhanced Slide Counter */}
-      <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md rounded-full px-4 py-2 text-white text-sm font-medium shadow-lg border border-white/20">
+      {/* <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md rounded-full px-4 py-2 text-white text-sm font-medium shadow-lg border border-white/20">
         {currentSlide + 1} / {slideImages.length}
-      </div>
+      </div> */}
 
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">

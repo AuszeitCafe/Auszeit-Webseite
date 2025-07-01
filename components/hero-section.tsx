@@ -276,26 +276,11 @@ export default function HeroSection() {
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col items-center justify-center mb-4">
               <div className="flex items-center justify-center gap-2 md:gap-3">
-                <Image
-                  src="/images/AuszeitMainLogo.png"
-                  alt="Auszeit Logo"
-                  width={280}
-                  height={140}
-                  className="h-16 md:h-24 lg:h-28 w-auto filter brightness-0 invert -mt-10 md:-mt-14 lg:-mt-16"
-                  style={{
-                    filter: "brightness(0) invert(1)",
-                  }}
-                  priority
-                />
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-aspal-title uppercase tracking-wide leading-none">
-                  Catering
+                  Auszeit Catering
                 </h1>
               </div>
             </div>
-            <p className="text-xl md:text-2xl mb-6 text-white/90">Exquisites Catering für Ihren besonderen Anlass</p>
-            <p className="text-lg md:text-xl mb-8 text-white/80">
-              Genießen Sie kulinarische Köstlichkeiten, die Ihre Gäste begeistern werden
-            </p>
             <div className="flex justify-center">
               {/* Updated button with more elegant, transparent styling */}
               <button
