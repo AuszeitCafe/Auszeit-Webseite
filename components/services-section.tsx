@@ -1,4 +1,3 @@
-import { Card, CardHeader, CardTitle } from "@/components/ui/card"
 import { CustomIcon, IconContainer } from "@/components/ui/icon-container"
 
 export default function ServicesSection() {
@@ -16,53 +15,13 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          <Card className="border border-border/40 shadow-sm hover:shadow-md transition-shadow">
-            <CardHeader className="pb-4 text-center">
-              <IconContainer size="md" variant="transparent" className="mb-4 mx-auto">
-                <CustomIcon name="catering" size={48} />
-              </IconContainer>
-              <CardTitle className="text-lg">Vielfältiges Angebot</CardTitle>
-            </CardHeader>
-          </Card>
-
-          <Card className="border border-border/40 shadow-sm hover:shadow-md transition-shadow">
-            <CardHeader className="pb-4 text-center">
-              <IconContainer size="md" variant="transparent" className="mb-4 mx-auto">
-                <CustomIcon name="service" size={48} />
-              </IconContainer>
-              <CardTitle className="text-lg">Flexible Planung</CardTitle>
-            </CardHeader>
-          </Card>
-
-          <Card className="border border-border/40 shadow-sm hover:shadow-md transition-shadow">
-            <CardHeader className="pb-4 text-center">
-              <IconContainer size="md" variant="transparent" className="mb-4 mx-auto">
-                <CustomIcon name="service" size={48} />
-              </IconContainer>
-              <CardTitle className="text-lg">Höchste Qualität</CardTitle>
-            </CardHeader>
-          </Card>
-
-          <Card className="border border-border/40 shadow-sm hover:shadow-md transition-shadow">
-            <CardHeader className="pb-4 text-center">
-              <IconContainer size="md" variant="transparent" className="mb-4 mx-auto">
-                <CustomIcon name="service" size={48} />
-              </IconContainer>
-              <CardTitle className="text-lg">Farbabstimmung</CardTitle>
-            </CardHeader>
-          </Card>
-
-          <Card className="border border-border/40 shadow-sm hover:shadow-md transition-shadow">
-            <CardHeader className="pb-4 text-center">
-              <IconContainer size="md" variant="transparent" className="mb-4 mx-auto">
-                <CustomIcon name="service" size={48} />
-              </IconContainer>
-              <CardTitle className="text-lg">Mottobuffets</CardTitle>
-            </CardHeader>
-          </Card>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center font-madelyn text-2xl text-foreground">
+          <div>Vielfaeltiges Angebot</div>
+          <div>Flexible Planung</div>
+          <div>Hoechste Qualität</div>
+          <div>Farbabstimmung</div>
+          <div>Mottobuffets</div>
         </div>
-
       </div>
     </section>
   )

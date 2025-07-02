@@ -10,6 +10,20 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Madelyn';
+  src: url('/fonts/MadelynDemo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MadelynFill';
+  src: url('/fonts/MadelynDemo.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   :root {
     /* Enhanced warm color palette with brown and beige tones */

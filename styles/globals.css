@@ -12,6 +12,20 @@ body {
   }
 }
 
+@font-face {
+  font-family: 'Madelyn';
+  src: url('/fonts/Madelyn-Trial-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MadelynFill';
+  src: url('/fonts/MadelynFill-Trial-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

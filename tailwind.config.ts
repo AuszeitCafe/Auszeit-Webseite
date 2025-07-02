@@ -21,6 +21,8 @@ const config = {
     extend: {
       fontFamily: {
         aspal: ["'Aspal'", "serif"],
+        madelyn: ['Madelyn', 'cursive'],
+        madelynfill: ['MadelynFill', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",
