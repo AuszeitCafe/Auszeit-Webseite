@@ -130,21 +130,21 @@ export default function CafeHeader() {
               className="py-3 border-b border-gray-100 hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Speisekarte
+              1. Speisekarte
             </a>
             <a
               href="#hours"
               className="py-3 border-b border-gray-100 hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Öffnungszeiten
+              2. Öffnungszeiten
             </a>
             <a
               href="#contact"
               className="py-3 border-b border-gray-100 hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Kontakt
+              3. Kontakt
             </a>
             <Link
               href="/"
@@ -167,7 +167,7 @@ export default function CafeHeader() {
                   <polyline points="9 22 9 12 15 12 15 22" />
                 </svg>
               </IconContainer>
-              Startseite
+              4. Startseite
             </Link>
           </div>
         </div>
