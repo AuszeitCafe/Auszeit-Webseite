@@ -116,8 +116,8 @@ export default function BookingSection() {
           </Alert>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
+          <div className="flex justify-center">
+            <div className="w-full max-w-2xl">
             <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
