@@ -17,18 +17,6 @@ export default function CafeAboutSection() {
               Ob zum Frühstück, beim genussvollen Brunch oder beim gemütlichen Nachmittagskaffee – bei uns finden Sie zu
               jeder Tageszeit genau das Richtige.
             </p>
-            <div className="flex items-center space-x-4">
-              <IconContainer size="sm" variant="transparent" className="!w-6 !h-6 !p-0">
-                <CustomIcon name="cafe" size={24} />
-              </IconContainer>
-              <span className="text-lg font-medium">Hausgemachte Spezialitäten</span>
-            </div>
-            <div className="flex items-center space-x-4 mt-3">
-              <IconContainer size="sm" variant="transparent" className="!w-6 !h-6 !p-0">
-                <CustomIcon name="service" size={24} />
-              </IconContainer>
-              <span className="text-lg font-medium">Frische Zutaten aus der Region</span>
-            </div>
           </div>
           {/* Enhanced Single Slideshow */}
           <div className="rounded-xl overflow-hidden shadow-2xl border border-primary/10">

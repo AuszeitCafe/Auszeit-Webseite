@@ -91,16 +91,6 @@ export default function HeroSection() {
                 Angebote
               </a>
               <a
-                href="#gallery"
-                className="hover:text-primary transition-colors"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick("gallery")
-                }}
-              >
-                Galerie
-              </a>
-              <a
                 href="#booking"
                 className="hover:text-primary transition-colors"
                 onClick={(e) => {
@@ -195,7 +185,7 @@ export default function HeroSection() {
                   setMobileMenuOpen(false)
                 }}
               >
-                Leistungen
+                1. Leistungen
               </a>
               <a
                 href="#angebote"
@@ -206,18 +196,7 @@ export default function HeroSection() {
                   setMobileMenuOpen(false)
                 }}
               >
-                Angebote
-              </a>
-              <a
-                href="#gallery"
-                className="py-3 border-b border-gray-100 hover:text-primary transition-colors"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick("gallery")
-                  setMobileMenuOpen(false)
-                }}
-              >
-                Galerie
+                2. Angebote
               </a>
               <a
                 href="#booking"
@@ -228,7 +207,7 @@ export default function HeroSection() {
                   setMobileMenuOpen(false)
                 }}
               >
-                Kontakt
+                3. Kontakt
               </a>
               <Link
                 href="/"

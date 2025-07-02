@@ -46,12 +46,6 @@ export default function CafeHeader() {
             <a href="#menu" className="hover:text-primary transition-colors">
               Speisekarte
             </a>
-            <a href="#hours" className="hover:text-primary transition-colors">
-              Öffnungszeiten
-            </a>
-            <a href="#contact" className="hover:text-primary transition-colors">
-              Kontakt
-            </a>
             <Link href="/" className="hover:text-primary transition-colors flex items-center">
               <IconContainer size="sm" variant="transparent" className="!w-5 !h-5 !p-0 mr-1">
                 <svg
@@ -132,20 +126,6 @@ export default function CafeHeader() {
             >
               1. Speisekarte
             </a>
-            <a
-              href="#hours"
-              className="py-3 border-b border-gray-100 hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              2. Öffnungszeiten
-            </a>
-            <a
-              href="#contact"
-              className="py-3 border-b border-gray-100 hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              3. Kontakt
-            </a>
             <Link
               href="/"
               className="py-3 border-b border-gray-100 hover:text-primary transition-colors flex items-center justify-center"
@@ -167,7 +147,7 @@ export default function CafeHeader() {
                   <polyline points="9 22 9 12 15 12 15 22" />
                 </svg>
               </IconContainer>
-              4. Startseite
+              2. Startseite
             </Link>
           </div>
         </div>

@@ -16,9 +16,9 @@ export default function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center font-madelyn text-2xl text-foreground">
-          <div>Vielfaeltiges Angebot</div>
+          <div>Vielfältiges Angebot</div>
           <div>Flexible Planung</div>
-          <div>Hoechste Qualität</div>
+          <div>Höchste Qualität</div>
           <div>Farbabstimmung</div>
           <div>Mottobuffets</div>
         </div>
