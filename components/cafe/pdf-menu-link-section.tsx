@@ -7,7 +7,7 @@ export default function PdfMenuLinkSection() {
     <section id="menu" className="py-16 bg-gradient-to-br from-beige-50 to-coffee-100/30 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-madelyn text-foreground mb-8">Unsere Speisekarte</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">Unsere Speisekarte</h2>
           <div className="max-w-md mx-auto text-center bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-primary/20">
             <Button
               asChild
