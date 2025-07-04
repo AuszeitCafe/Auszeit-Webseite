@@ -8,12 +8,12 @@ export default function CafeAboutSection() {
         {/* Main Slideshow and Welcome Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <p className="text-lg text-muted-foreground mb-6 text-justify">
+            <p className="text-lg text-muted-foreground mb-6 text-center">
               Unser Café ist ein Ort zum Wohlfühlen – eine kleine Auszeit vom Alltag. In entspannter, liebevoll
               gestalteter Atmosphäre verwöhnen wir Sie mit frisch gebrühten Kaffeespezialitäten, hausgemachten Kuchen
               und ausgesuchten Köstlichkeiten.
             </p>
-            <p className="text-lg text-muted-foreground mb-6 text-justify">
+            <p className="text-lg text-muted-foreground mb-6 text-center">
               Ob zum Frühstück, beim genussvollen Brunch oder beim gemütlichen Nachmittagskaffee – bei uns finden Sie zu
               jeder Tageszeit genau das Richtige.
             </p>
@@ -27,7 +27,7 @@ export default function CafeAboutSection() {
         {/* Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-1 gap-12 items-center">
           <div className="order-1 md:order-2">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center mt-6 font-madelyn text-2xl text-foreground">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center mt-6 font-madelyn text-2xl text-[#4b2e2b]">
               <span>Bio-Qualität</span>
               <span>Regional</span>
               <span>Hausgemacht</span>
