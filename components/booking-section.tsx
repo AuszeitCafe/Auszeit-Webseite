@@ -142,7 +142,6 @@ export default function BookingSection() {
                       <SelectValue placeholder="Wählen Sie" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="10-25">10-25 Personen</SelectItem>
                       <SelectItem value="25-50">25-50 Personen</SelectItem>
                       <SelectItem value="50-100">50-100 Personen</SelectItem>
                       <SelectItem value="100+">Über 100 Personen</SelectItem>

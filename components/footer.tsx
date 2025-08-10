@@ -133,9 +133,9 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">
               Öffnungszeiten Cafe:
               <br />
-              Mo-Di-Mi & Do: 09:00 - 17:00 Uhr
+              Montag–Donnerstag: 09:00–18:00 Uhr
               <br />
-              Sa & So: 09:00 - 18:00 Uhr
+              Freitag-Sonntag: 09:00–19:00 Uhr
             </p>
           </div>
         </div>
