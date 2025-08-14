@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { CalendarIcon, Clock, Mail, MapPin, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -18,6 +18,7 @@ import { de } from "date-fns/locale"
 import { useBookingContext } from "@/contexts/booking-context"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import emailjs from "@emailjs/browser"
 
 export default function BookingSection() {
   const [date, setDate] = useState<Date>()
@@ -26,6 +27,9 @@ export default function BookingSection() {
   const [guestCountRange, setGuestCountRange] = useState("")
   const [timeOfDay, setTimeOfDay] = useState("")
   const [additionalInfo, setAdditionalInfo] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const formRef = useRef<HTMLFormElement | null>(null)
 
   // Get booking context
   const { bookingData, clearBookingData } = useBookingContext()
@@ -66,16 +70,78 @@ export default function BookingSection() {
     }
   }, [bookingData])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would normally handle the form submission
-    setFormSubmitted(true)
+    setErrorMessage(null)
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormSubmitted(false)
+    // Basic required checks for fields not handled by native 'required'
+    if (!date) {
+      setErrorMessage("Bitte wählen Sie ein Datum aus.")
+      return
+    }
+    if (!timeOfDay) {
+      setErrorMessage("Bitte wählen Sie eine Uhrzeit aus.")
+      return
+    }
+    if (!guestCountRange) {
+      setErrorMessage("Bitte wählen Sie die Anzahl der Gäste aus.")
+      return
+    }
+
+    try {
+      setLoading(true)
+
+      const form = formRef.current
+      if (!form) {
+        setErrorMessage("Formular nicht gefunden. Bitte laden Sie die Seite neu.")
+        return
+      }
+
+      const fd = new FormData(form)
+
+      const templateParams = {
+        name: String(fd.get("name") || ""),
+        email: String(fd.get("email") || ""),
+        phone: String(fd.get("phone") || ""),
+        eventType,
+        guests: guestCountRange,
+        date: format(date, "PPP", { locale: de }),
+        timeOfDay,
+        message: additionalInfo || String(fd.get("message") || ""),
+        // Optional: include bookingData summary if available
+        configuration: bookingData
+          ? `Paket: ${bookingData.packageType}\nAnzahl Gäste: ${bookingData.guestCount}\nDauer: ${bookingData.duration} Stunden\nGeschätzter Preis: ${bookingData.totalPrice} €`
+          : "-",
+      }
+
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+
+      if (!serviceId || !templateId || !publicKey) {
+        setErrorMessage("E-Mail-Konfiguration fehlt. Bitte setzen Sie die ENV-Variablen.")
+        return
+      }
+
+      await emailjs.send(serviceId, templateId, templateParams, { publicKey })
+
+      setFormSubmitted(true)
+      form.reset()
+      setDate(undefined)
+      setEventType("private")
+      setGuestCountRange("")
+      setTimeOfDay("")
+      setAdditionalInfo("")
       clearBookingData()
-    }, 3000)
+
+      // Hide success state after a short delay
+      setTimeout(() => setFormSubmitted(false), 3000)
+    } catch (err) {
+      console.error(err)
+      setErrorMessage("Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -118,22 +184,22 @@ export default function BookingSection() {
 
           <div className="flex justify-center">
             <div className="w-full max-w-2xl">
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name *</Label>
-                  <Input id="name" placeholder="Ihr vollständiger Name" required />
+                  <Input id="name" name="name" placeholder="Ihr vollständiger Name" required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">E-Mail *</Label>
-                  <Input id="email" type="email" placeholder="ihre-email@beispiel.de" required />
+                  <Input id="email" name="email" type="email" placeholder="ihre-email@beispiel.de" required />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="phone">Telefon *</Label>
-                  <Input id="phone" placeholder="Ihre Telefonnummer" required />
+                  <Input id="phone" name="phone" placeholder="Ihre Telefonnummer" required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="guests">Anzahl der Gäste *</Label>
@@ -212,6 +278,7 @@ export default function BookingSection() {
                 <Label htmlFor="message">Ihre Nachricht</Label>
                 <Textarea
                   id="message"
+                  name="message"
                   placeholder="Teilen Sie uns Ihre Wünsche und Anforderungen mit"
                   className="min-h-[120px]"
                   value={additionalInfo}
@@ -219,8 +286,14 @@ export default function BookingSection() {
                 />
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
-                {formSubmitted ? "Anfrage gesendet!" : "Anfrage absenden"}
+              {errorMessage && (
+                <Alert variant="destructive">
+                  <AlertDescription>{errorMessage}</AlertDescription>
+                </Alert>
+              )}
+
+              <Button type="submit" className="w-full" size="lg" disabled={loading}>
+                {loading ? "Wird gesendet…" : formSubmitted ? "Anfrage gesendet!" : "Anfrage absenden"}
               </Button>
             </form>
           </div>
