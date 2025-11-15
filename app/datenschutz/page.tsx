@@ -6,7 +6,7 @@ export default function DatenschutzPage() {
   const addressStreet = "Petersilienstrasse 33-35a"
   const addressCity = "38640 Goslar"
   const email = "Auszeit.goslar@gmail.com"
-  const phone = "015126897148"
+  const phone = "05321 7387918"
   const representatives = "Gülsüm Er, Maha Alrifai"
   const lastUpdated = "13.09.2025"
 

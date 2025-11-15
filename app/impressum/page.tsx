@@ -7,7 +7,7 @@ export default function ImpressumPage() {
   const addressStreet = "Petersilienstrasse 33-35a"
   const addressCity = "38640 Goslar"
   const email = "Auszeit.goslar@gmail.com"
-  const phoneNumber = "015126897148"
+  const phoneNumber = "05321 7387918"
   const representatives = "Vertretungsberechtigt: Gülsüm Er, Maha Alrifai"
   const vatId = "DE453733748"
   const supervisoryAuthority = "Zuständige Aufsichtsbehörde: Ordnungsamt/Gesundheitsamt Goslar"

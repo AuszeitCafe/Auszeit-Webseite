@@ -96,6 +96,7 @@ export default function CafeHoursLocationSection() {
                 <div>
                   <h3 className="text-xl font-medium mb-2">Kontakt</h3>
                   <p className="text-muted-foreground">E-Mail: auszeit.goslar@gmail.com</p>
+                  <p className="text-muted-foreground">Telefon: 05321 7387918</p>
                 </div>
               </div>
 
