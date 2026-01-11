@@ -5,20 +5,8 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Footer from "@/components/footer"
 import { CustomIcon, IconContainer } from "@/components/ui/icon-container"
-import { useToast } from "@/components/ui/use-toast"
-import { Toaster } from "@/components/ui/toaster"
 
 export default function Home() {
-  const { toast } = useToast()
-
-  const handleFerienwohnungClick = () => {
-    toast({
-      title: "Ferienwohnung",
-      description: "Unsere Ferienwohnung wird in Kürze verfügbar sein. Wir freuen uns auf Ihren Besuch!",
-      duration: 5000,
-    })
-  }
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -118,20 +106,19 @@ export default function Home() {
                   <CustomIcon name="ferienwohnung" size={100} />
                 </IconContainer>
                 <h2 className="text-2xl font-bold mb-6 text-gray-800 font-aspal-heading">Ferienwohnung Auszeit</h2>
-                <Button
-                  size="lg"
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-coffee-600 hover:from-coffee-600 hover:to-primary shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                  onClick={handleFerienwohnungClick}
-                >
-                  Mehr erfahren
-                </Button>
+                <Link href="/ferienwohnung" className="mt-auto w-full" onClick={scrollToTop}>
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-primary to-coffee-600 hover:from-coffee-600 hover:to-primary shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    Mehr erfahren
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* Toast notification */}
-      <Toaster />
       {/* Footer */}
       <Footer />
     </main>
