@@ -46,6 +46,7 @@ export default function Home() {
                 className="h-auto"
                 priority
               />
+              {/* Julius Branch */}
             </div>
             <p className="text-lg md:text-xl mb-10 text-gray-600 max-w-2xl mx-auto">
               Entdecken Sie unsere Welt des Genusses – mit unserem vielfältigen Frühstück und Brunch-Angebot aus
