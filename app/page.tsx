@@ -51,7 +51,6 @@ export default function Home() {
               Entdecken Sie unsere Welt des Genusses – mit unserem vielfältigen Frühstück und Brunch-Angebot aus
               regionalen und Bio-Produkten. Genießen Sie unsere hausgemachten Spezialitäten mit frischen Zutaten, auch
               vegan und vegetarisch.
-              
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {/* Café Auszeit Section */}
