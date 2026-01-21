@@ -13,7 +13,14 @@ export default function FerienwohnungPage() {
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-primary/10 shadow-sm">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/images/AuszeitMainLogo.png" alt="Auszeit Logo" width={140} height={70} className="h-auto" />
+            <Image
+              src="/images/HeadeLogoFerienwohnung.png"
+              alt="Auszeit Ferienwohnung Logo"
+              width={200}
+              height={200}
+              className="h-14 w-auto md:h-16"
+              priority
+            />
           </Link>
           <Link
             href="/"
@@ -55,9 +62,12 @@ export default function FerienwohnungPage() {
             <p className="mb-3 inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-semibold text-primary shadow-sm">
               Ferienwohnung Auszeit
             </p>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-aspal-heading font-bold text-gray-900 leading-tight">
-              Auszeit Ferienwohnung – Ankommen. Durchatmen. Bleiben.
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              <span className="font-aspal-heading block">Auszeit Ferienwohnung</span>
             </h1>
+            <p className="mt-3 text-lg md:text-xl font-semibold text-coffee-800 tracking-tight">
+              Ankommen. Durchatmen. Bleiben.
+            </p>
             <p className="mt-6 text-lg md:text-xl text-gray-700">
               Mitten in der historischen Altstadt von Goslar, direkt über unserem Café Auszeit, erwartet euch ein Ort zum
               Zurücklehnen und Wohlfühlen. Unsere moderne Zweizimmer-Ferienwohnung ist der perfekte Rückzugsort für
@@ -92,12 +102,30 @@ export default function FerienwohnungPage() {
               </p>
               <div className="rounded-2xl bg-white/85 p-6 shadow-lg border border-primary/10">
                 <ul className="space-y-3 text-gray-800">
-                  <li>🛏 Separates Schlafzimmer für erholsamen Schlaf</li>
-                  <li>🛋 Wohnbereich mit Schlafcouch (für eine weitere Person)</li>
-                  <li>📚 Kleine Leseecke zum Abschalten</li>
-                  <li>📺 Fernseher &amp; kostenloses WLAN</li>
-                  <li>☕ Wasserkocher, gratis Tee &amp; löslicher Kaffee</li>
-                  <li>🧼 Modernes, stilvolles Ambiente</li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Bett.png" alt="Schlafzimmer Icon" width={32} height={32} />
+                    <span>Separates Schlafzimmer für erholsamen Schlaf</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Sessel.png" alt="Wohnbereich Icon" width={32} height={32} />
+                    <span>Wohnbereich mit Schlafcouch (für eine weitere Person)</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Bücher.png" alt="Leseecke Icon" width={32} height={32} />
+                    <span>Kleine Leseecke zum Abschalten</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Fernseher.png" alt="Fernseher Icon" width={32} height={32} />
+                    <span>Fernseher &amp; kostenloses WLAN</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Tassen.png" alt="Getränke Icon" width={32} height={32} />
+                    <span>Wasserkocher, gratis Tee &amp; löslicher Kaffee</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Haus.png" alt="Ambiente Icon" width={32} height={32} />
+                    <span>Modernes, stilvolles Ambiente</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -117,10 +145,22 @@ export default function FerienwohnungPage() {
               <div className="rounded-2xl bg-white/90 p-6 shadow-lg border border-primary/10">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Bequem &amp; unkompliziert</h3>
                 <ul className="space-y-2 text-gray-800">
-                  <li>🚗 Eigener Parkplatz inklusive</li>
-                  <li>🛗 3. Etage mit Aufzug</li>
-                  <li>🔐 24/7 Check-in über sichere Schlüsselbox (ABUS)</li>
-                  <li>🏡 Ruhig gelegen trotz zentraler Lage</li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Auto.png" alt="Parkplatz Icon" width={32} height={32} />
+                    <span>Eigener Parkplatz inklusive</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Aufzug.png" alt="Aufzug Icon" width={32} height={32} />
+                    <span>3. Etage mit Aufzug</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Schlüssel.png" alt="Schlüsselbox Icon" width={32} height={32} />
+                    <span>24/7 Check-in über sichere Schlüsselbox (ABUS)</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Image src="/ferienwohnung_icons/Muschel.png" alt="Ruhige Lage Icon" width={32} height={32} />
+                    <span>Ruhig gelegen trotz zentraler Lage</span>
+                  </li>
                 </ul>
               </div>
             </div>
