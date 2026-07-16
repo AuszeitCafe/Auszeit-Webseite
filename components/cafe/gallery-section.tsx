@@ -3,27 +3,27 @@ import Image from "next/image"
 const galleryImages = [
   {
     src: "/images/cafe-images/cafe-image1.jpeg",
-    alt: "Artisanal coffee with beautiful latte art and matcha layered drink",
+    alt: "Barista gießt Latte Art in eine Cappuccino-Tasse",
   },
   {
     src: "/images/cafe-images/cafe-image2.jpeg",
-    alt: "Gourmet cupcake with pistachio garnish at Cafe Auszeit",
+    alt: "Toast mit Hummus, pochiertem Ei und frischen Sprossen",
   },
   {
     src: "/images/cafe-images/cafe-image3.jpeg",
-    alt: "Elegant breakfast plate with eggs benedict and fresh garnishes",
+    alt: "Lachs-Toast mit Granatapfelkernen und Balsamico",
   },
   {
     src: "/images/cafe-images/cafe-image4.jpeg",
-    alt: "Refreshing matcha latte with breakfast spread",
+    alt: "Pistazien-Brownies aus der eigenen Backstube",
   },
   {
     src: "/images/cafe-images/cafe-image5.jpeg",
-    alt: "Decadent chocolate dessert with fresh strawberries",
+    alt: "Matcha-Erdbeer-Latte im Glas",
   },
   {
     src: "/images/cafe-images/cafe-image6.jpeg",
-    alt: "Sophisticated salad with cured meat and microgreens",
+    alt: "Frühstücksteller mit Brioche, Rührei und frischem Salat",
   },
 ]
 
